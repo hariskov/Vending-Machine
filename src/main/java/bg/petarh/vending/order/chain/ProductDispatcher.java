@@ -1,8 +1,8 @@
-package bg.petarh.noser.order.chain;
+package bg.petarh.vending.order.chain;
 
-import bg.petarh.noser.order.OrderManagement;
-import bg.petarh.noser.order.PurchaseOrder;
-import bg.petarh.noser.rest.responses.PurchaseOrderHandlingResponse;
+import bg.petarh.vending.order.OrderManagement;
+import bg.petarh.vending.order.PurchaseOrder;
+import bg.petarh.vending.rest.responses.PurchaseOrderHandlingResponse;
 
 public class ProductDispatcher extends PurchaseOrder {
     private OrderManagement orderManagement;

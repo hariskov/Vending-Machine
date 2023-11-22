@@ -1,4 +1,4 @@
-package bg.petarh.noser.coins;
+package bg.petarh.vending.coins;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

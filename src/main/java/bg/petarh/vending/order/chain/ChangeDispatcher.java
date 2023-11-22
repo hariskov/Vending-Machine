@@ -1,12 +1,12 @@
-package bg.petarh.noser.order.chain;
+package bg.petarh.vending.order.chain;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import bg.petarh.noser.coins.CoinManagement;
-import bg.petarh.noser.order.OrderManagement;
-import bg.petarh.noser.order.PurchaseOrder;
-import bg.petarh.noser.rest.responses.PurchaseOrderHandlingResponse;
+import bg.petarh.vending.coins.CoinManagement;
+import bg.petarh.vending.order.OrderManagement;
+import bg.petarh.vending.order.PurchaseOrder;
+import bg.petarh.vending.rest.responses.PurchaseOrderHandlingResponse;
 
 public class ChangeDispatcher extends PurchaseOrder {
 

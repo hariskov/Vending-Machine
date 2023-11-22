@@ -1,4 +1,4 @@
-package bg.petarh.noser.state;
+package bg.petarh.vending.state;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,12 +7,12 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Map;
 
-import bg.petarh.noser.coins.Coin;
-import bg.petarh.noser.coins.CoinManagement;
-import bg.petarh.noser.entities.ProductInventory;
-import bg.petarh.noser.order.Order;
-import bg.petarh.noser.order.OrderManagement;
-import bg.petarh.noser.services.ProductService;
+import bg.petarh.vending.coins.Coin;
+import bg.petarh.vending.coins.CoinManagement;
+import bg.petarh.vending.entities.ProductInventory;
+import bg.petarh.vending.order.Order;
+import bg.petarh.vending.order.OrderManagement;
+import bg.petarh.vending.services.ProductService;
 
 @Service
 class StateProvider {

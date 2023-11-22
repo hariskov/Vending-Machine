@@ -1,4 +1,4 @@
-package bg.petarh.noser.coins;
+package bg.petarh.vending.coins;
 
 import java.util.EnumMap;
 import java.util.Map;

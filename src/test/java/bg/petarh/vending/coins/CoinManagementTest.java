@@ -1,4 +1,4 @@
-package bg.petarh.noser.coins;
+package bg.petarh.vending.coins;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

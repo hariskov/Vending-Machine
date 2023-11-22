@@ -1,4 +1,4 @@
-package bg.petarh.noser.rest.controllers;
+package bg.petarh.vending.rest.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import bg.petarh.noser.entities.Product;
-import bg.petarh.noser.services.ProductService;
+import bg.petarh.vending.entities.Product;
+import bg.petarh.vending.services.ProductService;
 
 
 @RestController(value = "/product-management")

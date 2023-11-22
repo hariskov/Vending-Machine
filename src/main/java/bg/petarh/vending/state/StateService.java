@@ -1,4 +1,4 @@
-package bg.petarh.noser.state;
+package bg.petarh.vending.state;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;

@@ -1,4 +1,4 @@
-package bg.petarh.noser.rest.responses;
+package bg.petarh.vending.rest.responses;
 
 public class InsufficientCoinsInsertedResponse implements PurchaseOrderHandlingResponse {
 

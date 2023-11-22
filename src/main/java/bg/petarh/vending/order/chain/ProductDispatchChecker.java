@@ -1,11 +1,11 @@
-package bg.petarh.noser.order.chain;
+package bg.petarh.vending.order.chain;
 
-import bg.petarh.noser.entities.Product;
-import bg.petarh.noser.order.OrderManagement;
-import bg.petarh.noser.order.PurchaseOrder;
-import bg.petarh.noser.rest.responses.DrinkSelectUnavailableResponse;
-import bg.petarh.noser.rest.responses.PurchaseOrderHandlingResponse;
-import bg.petarh.noser.services.ProductService;
+import bg.petarh.vending.entities.Product;
+import bg.petarh.vending.order.OrderManagement;
+import bg.petarh.vending.order.PurchaseOrder;
+import bg.petarh.vending.rest.responses.DrinkSelectUnavailableResponse;
+import bg.petarh.vending.rest.responses.PurchaseOrderHandlingResponse;
+import bg.petarh.vending.services.ProductService;
 
 public class ProductDispatchChecker extends PurchaseOrder {
 

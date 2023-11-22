@@ -1,9 +1,9 @@
-package bg.petarh.noser.repository;
+package bg.petarh.vending.repository;
 
 import java.util.List;
 
-import bg.petarh.noser.entities.Product;
-import bg.petarh.noser.entities.ProductInventory;
+import bg.petarh.vending.entities.Product;
+import bg.petarh.vending.entities.ProductInventory;
 
 public interface ProductRepository {
 

@@ -1,4 +1,4 @@
-package bg.petarh.noser.rest.controllers;
+package bg.petarh.vending.rest.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -9,17 +9,17 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-import bg.petarh.noser.coins.Coin;
-import bg.petarh.noser.coins.CoinManagement;
-import bg.petarh.noser.entities.Product;
-import bg.petarh.noser.order.OrderManagement;
-import bg.petarh.noser.order.PurchaseOrderChain;
-import bg.petarh.noser.order.PurchaseOrderSelectionType;
-import bg.petarh.noser.order.chain.ProductSelect;
-import bg.petarh.noser.repository.ProductRepository;
-import bg.petarh.noser.rest.responses.PurchaseOrderHandlingResponse;
-import bg.petarh.noser.services.ProductService;
-import bg.petarh.noser.state.StateService;
+import bg.petarh.vending.coins.Coin;
+import bg.petarh.vending.coins.CoinManagement;
+import bg.petarh.vending.entities.Product;
+import bg.petarh.vending.order.OrderManagement;
+import bg.petarh.vending.order.PurchaseOrderChain;
+import bg.petarh.vending.order.PurchaseOrderSelectionType;
+import bg.petarh.vending.order.chain.ProductSelect;
+import bg.petarh.vending.repository.ProductRepository;
+import bg.petarh.vending.rest.responses.PurchaseOrderHandlingResponse;
+import bg.petarh.vending.services.ProductService;
+import bg.petarh.vending.state.StateService;
 
 @RestController(value = "/")
 public class Operations {

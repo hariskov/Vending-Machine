@@ -1,11 +1,11 @@
-package bg.petarh.noser.repository;
+package bg.petarh.vending.repository;
 
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-import bg.petarh.noser.entities.Product;
-import bg.petarh.noser.entities.ProductInventory;
+import bg.petarh.vending.entities.Product;
+import bg.petarh.vending.entities.ProductInventory;
 
 /**
  * Repository class that substitutes calls to the database with ones returning predefined data

@@ -1,6 +1,6 @@
-package bg.petarh.noser.order;
+package bg.petarh.vending.order;
 
-import bg.petarh.noser.rest.responses.PurchaseOrderHandlingResponse;
+import bg.petarh.vending.rest.responses.PurchaseOrderHandlingResponse;
 
 public abstract class PurchaseOrder {
     private PurchaseOrder nextPurchaseOrder;

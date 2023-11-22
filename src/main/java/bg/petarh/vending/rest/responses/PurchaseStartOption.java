@@ -1,4 +1,4 @@
-package bg.petarh.noser.rest.responses;
+package bg.petarh.vending.rest.responses;
 
 public class PurchaseStartOption implements PurchaseOrderHandlingResponse {
     static final String CONTINUE_OR_RETURN_CHANGE = "Please select a drink or press the return change button";

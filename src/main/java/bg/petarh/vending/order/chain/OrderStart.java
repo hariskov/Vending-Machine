@@ -1,10 +1,10 @@
-package bg.petarh.noser.order.chain;
+package bg.petarh.vending.order.chain;
 
 import org.springframework.stereotype.Component;
 
-import bg.petarh.noser.order.PurchaseOrder;
-import bg.petarh.noser.rest.responses.PurchaseOrderHandlingResponse;
-import bg.petarh.noser.rest.responses.PurchaseStartOption;
+import bg.petarh.vending.order.PurchaseOrder;
+import bg.petarh.vending.rest.responses.PurchaseOrderHandlingResponse;
+import bg.petarh.vending.rest.responses.PurchaseStartOption;
 
 public class OrderStart extends PurchaseOrder {
 

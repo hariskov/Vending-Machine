@@ -1,4 +1,4 @@
-package bg.petarh.noser.order.chain;
+package bg.petarh.vending.order.chain;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -6,11 +6,11 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import bg.petarh.noser.coins.CoinManagement;
-import bg.petarh.noser.order.Order;
-import bg.petarh.noser.order.OrderManagement;
-import bg.petarh.noser.rest.responses.CantReturnChangeResponse;
-import bg.petarh.noser.rest.responses.PurchaseOrderHandlingResponse;
+import bg.petarh.vending.coins.CoinManagement;
+import bg.petarh.vending.order.Order;
+import bg.petarh.vending.order.OrderManagement;
+import bg.petarh.vending.rest.responses.CantReturnChangeResponse;
+import bg.petarh.vending.rest.responses.PurchaseOrderHandlingResponse;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;

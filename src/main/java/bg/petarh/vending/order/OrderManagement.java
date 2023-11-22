@@ -1,11 +1,11 @@
-package bg.petarh.noser.order;
+package bg.petarh.vending.order;
 
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import bg.petarh.noser.entities.Product;
+import bg.petarh.vending.entities.Product;
 
 @Service
 public class OrderManagement {

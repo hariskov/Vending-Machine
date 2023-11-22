@@ -1,4 +1,4 @@
-package bg.petarh.noser.coins;
+package bg.petarh.vending.coins;
 
 import org.springframework.stereotype.Component;
 

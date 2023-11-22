@@ -1,12 +1,12 @@
-package bg.petarh.noser.order.chain;
+package bg.petarh.vending.order.chain;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import bg.petarh.noser.coins.CoinManagement;
-import bg.petarh.noser.order.OrderManagement;
+import bg.petarh.vending.coins.CoinManagement;
+import bg.petarh.vending.order.OrderManagement;
 
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;

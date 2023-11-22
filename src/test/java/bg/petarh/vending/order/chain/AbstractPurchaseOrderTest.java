@@ -1,6 +1,6 @@
-package bg.petarh.noser.order.chain;
+package bg.petarh.vending.order.chain;
 
-import bg.petarh.noser.rest.responses.PurchaseOrderHandlingResponse;
+import bg.petarh.vending.rest.responses.PurchaseOrderHandlingResponse;
 
 public class AbstractPurchaseOrderTest {
     protected static final String SIMULATED_TEST_RESPONSE = "Simulated test response for next chained class";

@@ -1,18 +1,18 @@
-package bg.petarh.noser.order;
+package bg.petarh.vending.order;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import bg.petarh.noser.coins.CoinManagement;
-import bg.petarh.noser.order.chain.ChangeDispatchChecker;
-import bg.petarh.noser.order.chain.ChangeDispatcher;
-import bg.petarh.noser.order.chain.OrderFinish;
-import bg.petarh.noser.order.chain.OrderStart;
-import bg.petarh.noser.order.chain.ProductDispatchChecker;
-import bg.petarh.noser.order.chain.ProductDispatcher;
-import bg.petarh.noser.order.chain.ProductSelect;
-import bg.petarh.noser.order.chain.SufficientCoinChecker;
-import bg.petarh.noser.services.ProductService;
+import bg.petarh.vending.coins.CoinManagement;
+import bg.petarh.vending.order.chain.ChangeDispatchChecker;
+import bg.petarh.vending.order.chain.ChangeDispatcher;
+import bg.petarh.vending.order.chain.OrderFinish;
+import bg.petarh.vending.order.chain.OrderStart;
+import bg.petarh.vending.order.chain.ProductDispatchChecker;
+import bg.petarh.vending.order.chain.ProductDispatcher;
+import bg.petarh.vending.order.chain.ProductSelect;
+import bg.petarh.vending.order.chain.SufficientCoinChecker;
+import bg.petarh.vending.services.ProductService;
 
 @Component
 public class PurchaseOrderChain {

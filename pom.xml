@@ -2,12 +2,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>bg.petarh.noser</groupId>
+    <groupId>bg.petarh.vending</groupId>
     <artifactId>vendingMachine</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>Spring Boot Docker Blank Project (from https://github.com/making/spring-boot-docker-blank)</name>
+    <name>Vending Machine</name>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -17,8 +17,8 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <start-class>bg.petarh.noser.App</start-class>
-        <java.version>17</java.version>
+        <start-class>bg.petarh.vending.App</start-class>
+        <java.version>21</java.version>
         <docker.image.prefix>${user.name}</docker.image.prefix>
     </properties>
 

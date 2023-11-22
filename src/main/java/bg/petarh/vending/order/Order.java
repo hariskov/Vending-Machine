@@ -1,6 +1,6 @@
-package bg.petarh.noser.order;
+package bg.petarh.vending.order;
 
-import bg.petarh.noser.entities.Product;
+import bg.petarh.vending.entities.Product;
 
 public class Order {
 

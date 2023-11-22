@@ -1,4 +1,4 @@
-package bg.petarh.noser.order.chain;
+package bg.petarh.vending.order.chain;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -6,9 +6,9 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import bg.petarh.noser.coins.CoinManagement;
-import bg.petarh.noser.rest.responses.NewOrderResponse;
-import bg.petarh.noser.rest.responses.PurchaseOrderHandlingResponse;
+import bg.petarh.vending.coins.CoinManagement;
+import bg.petarh.vending.rest.responses.NewOrderResponse;
+import bg.petarh.vending.rest.responses.PurchaseOrderHandlingResponse;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.times;

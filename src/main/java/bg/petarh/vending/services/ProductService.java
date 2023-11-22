@@ -1,13 +1,13 @@
-package bg.petarh.noser.services;
+package bg.petarh.vending.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-import bg.petarh.noser.entities.Product;
-import bg.petarh.noser.entities.ProductInventory;
-import bg.petarh.noser.repository.ProductRepository;
+import bg.petarh.vending.entities.Product;
+import bg.petarh.vending.entities.ProductInventory;
+import bg.petarh.vending.repository.ProductRepository;
 
 @Service
 public class ProductService {

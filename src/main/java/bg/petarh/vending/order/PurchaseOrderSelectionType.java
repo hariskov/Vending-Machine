@@ -1,4 +1,4 @@
-package bg.petarh.noser.order;
+package bg.petarh.vending.order;
 
 public enum PurchaseOrderSelectionType {
     SELECT_DRINK,
