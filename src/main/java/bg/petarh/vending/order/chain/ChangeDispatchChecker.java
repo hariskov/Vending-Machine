@@ -11,9 +11,9 @@ import bg.petarh.vending.rest.responses.PurchaseOrderHandlingResponse;
 public class ChangeDispatchChecker extends PurchaseOrder {
 
     @Autowired
-    private OrderManagement orderManagement;
+    private final OrderManagement orderManagement;
     @Autowired
-    private CoinManagement coinManagement;
+    private final CoinManagement coinManagement;
 
     public ChangeDispatchChecker(OrderManagement orderManagement, CoinManagement coinManagement) {
         this.orderManagement = orderManagement;

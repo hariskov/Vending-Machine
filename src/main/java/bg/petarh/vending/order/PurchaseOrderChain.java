@@ -12,13 +12,13 @@ import bg.petarh.vending.order.chain.ProductDispatchChecker;
 import bg.petarh.vending.order.chain.ProductDispatcher;
 import bg.petarh.vending.order.chain.ProductSelect;
 import bg.petarh.vending.order.chain.SufficientCoinChecker;
-import bg.petarh.vending.services.ProductService;
+import bg.petarh.vending.services.ProductManagementService;
 
 @Component
 public class PurchaseOrderChain {
 
     @Autowired
-    private ProductService productService;
+    private ProductManagementService productManagementService;
     @Autowired
     private OrderManagement orderManagement;
     @Autowired
@@ -26,7 +26,7 @@ public class PurchaseOrderChain {
 
     private final PurchaseOrder orderStart = new OrderStart(); // Do you want to purchase ?
     private final PurchaseOrder productSelect = new ProductSelect(); // Select drink
-    private final PurchaseOrder productDispatchChecker = new ProductDispatchChecker(productService, orderManagement); // can dispatch drink ?
+    private final PurchaseOrder productDispatchChecker = new ProductDispatchChecker(productManagementService, orderManagement); // can dispatch drink ?
     private final PurchaseOrder sufficientCoinChecker = new SufficientCoinChecker(orderManagement, coinManagement); // can the drink be paid
     private final PurchaseOrder changeDispatchChecker = new ChangeDispatchChecker(orderManagement, coinManagement);  // can return change ?
     private final PurchaseOrder productDispatcher = new ProductDispatcher(orderManagement); // dispatch drink

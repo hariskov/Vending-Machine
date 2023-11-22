@@ -1,10 +1,8 @@
 package bg.petarh.vending.order.chain;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
 
 import bg.petarh.vending.coins.CoinManagement;
 import bg.petarh.vending.order.Order;
@@ -14,6 +12,7 @@ import bg.petarh.vending.rest.responses.PurchaseOrderHandlingResponse;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -31,13 +30,11 @@ class ChangeDispatchCheckerTest extends AbstractPurchaseOrderTest {
     @InjectMocks
     private ChangeDispatchChecker changeDispatchChecker;
 
-
     private final int productPrice = 1500;
     private final PurchaseOrderHandlingResponse mockResponse = new TestResponse();
 
-    @BeforeEach
+    @Override
     void setup() {
-        MockitoAnnotations.openMocks(this);
         Order currentOrder = new Order();
         when(orderManagement.getCurrentOrder()).thenReturn(currentOrder);
     }
@@ -68,8 +65,7 @@ class ChangeDispatchCheckerTest extends AbstractPurchaseOrderTest {
 
         //THEN
         assertTrue(response instanceof CantReturnChangeResponse);
-        verify(coinManagement, times(1));
-
+        verify(coinManagement, times(1)).canReturn(anyInt());
+        verify(orderManagement, times(1)).getCurrentOrder();
     }
-
 }

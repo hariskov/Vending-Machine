@@ -1,5 +1,6 @@
 package bg.petarh.vending.coins;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -28,9 +29,16 @@ class CoinManagementTest {
     @Mock
     private ChangeCalculator changeCalculator;
 
+    private AutoCloseable autoCloseable;
+
+    @AfterEach
+    void close() throws Exception {
+        autoCloseable.close();
+    }
+
     @BeforeEach
     void setup() {
-        MockitoAnnotations.openMocks(this);
+        autoCloseable = MockitoAnnotations.openMocks(this);
     }
 
     @Test
@@ -60,6 +68,7 @@ class CoinManagementTest {
         int purchaseAmount = 150;
         Map<Coin, Integer> calculatedChange = Collections.singletonMap(Coin.TEN, 2);
         when(changeCalculator.calculateChange(inventoryCoinHolder, purchaseAmount)).thenReturn(calculatedChange);
+//        when(coinManagement.getChange(inventoryCoinHolder, purchaseAmount)).thenReturn(calculatedChange);
         int calculatedChangeAmount = 20;
         int inventoryStartAmount = inventoryCoinHolder.getTotalAmount();
         int orderStartAmount = orderCoinHolder.getTotalAmount();

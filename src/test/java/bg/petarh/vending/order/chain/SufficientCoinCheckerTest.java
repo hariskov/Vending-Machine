@@ -1,10 +1,8 @@
 package bg.petarh.vending.order.chain;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
 
 import bg.petarh.vending.coins.CoinManagement;
 import bg.petarh.vending.entities.Product;
@@ -12,13 +10,12 @@ import bg.petarh.vending.order.Order;
 import bg.petarh.vending.order.OrderManagement;
 import bg.petarh.vending.rest.responses.InsufficientCoinsInsertedResponse;
 import bg.petarh.vending.rest.responses.PurchaseOrderHandlingResponse;
-import bg.petarh.vending.services.ProductService;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.when;
 
-class SufficientCoinCheckerTest extends AbstractPurchaseOrderTest{
+class SufficientCoinCheckerTest extends AbstractPurchaseOrderTest {
 
     @Mock
     private OrderManagement orderManagement;
@@ -35,9 +32,8 @@ class SufficientCoinCheckerTest extends AbstractPurchaseOrderTest{
     private final Product selectedProduct = new Product(1, "Cola", productPrice);
     private final PurchaseOrderHandlingResponse mockResponse = new TestResponse();
 
-    @BeforeEach
+    @Override
     void setup() {
-        MockitoAnnotations.openMocks(this);
         Order currentOrder = new Order();
         currentOrder.setSelectedProduct(selectedProduct);
         when(orderManagement.getCurrentOrder()).thenReturn(currentOrder);

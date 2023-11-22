@@ -1,6 +1,5 @@
 package bg.petarh.vending.coins;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.EnumMap;
@@ -13,11 +12,11 @@ import java.util.Map;
 @Service
 public class CoinManagement {
 
-    private final OrderCoinHolder orderCoinHolder;
-    private final InventoryCoinHolder inventoryCoinHolder;
-    private final ChangeCalculator changeCalculator;
+    private final OrderCoinHolder orderCoinHolder;// = new OrderCoinHolder();
+    private final InventoryCoinHolder inventoryCoinHolder;// = new InventoryCoinHolder();
+    private final ChangeCalculator changeCalculator;// = new ChangeCalculator();
 
-    @Autowired
+    //    @Autowired
     CoinManagement(OrderCoinHolder orderCoinHolder, InventoryCoinHolder inventoryCoinHolder, ChangeCalculator changeCalculator) {
         this.orderCoinHolder = orderCoinHolder;
         this.inventoryCoinHolder = inventoryCoinHolder;

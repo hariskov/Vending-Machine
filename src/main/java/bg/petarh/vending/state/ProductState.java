@@ -2,16 +2,16 @@ package bg.petarh.vending.state;
 
 import java.util.List;
 
-public class ProductState {
+class ProductState {
     List<Product> products;
-    public void setProducts(List<Product> products) {
+    void setProducts(List<Product> products) {
         this.products = products;
     }
 
-    public record Product(String name, int quantity) {
+    record Product(String name, int quantity) {
     }
 
-    public List<Product> getProducts() {
+    List<Product> getProducts() {
         return products;
     }
 }

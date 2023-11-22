@@ -49,7 +49,10 @@ public class ProductInventory {
 
         ProductInventory that = (ProductInventory) o;
 
-        return new EqualsBuilder().append(getId(), that.getId()).append(getProduct(), that.getProduct()).isEquals();
+        return new EqualsBuilder()
+                .append(getId(), that.getId())
+                .append(getProduct(), that.getProduct())
+                .isEquals();
     }
 
     @Override

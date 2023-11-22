@@ -6,19 +6,18 @@ import java.util.List;
 import bg.petarh.vending.entities.Product;
 import bg.petarh.vending.entities.ProductInventory;
 
-public final class FakeProductProvider {
-    private List<Product> productList = new ArrayList<>();
-    private List<ProductInventory> productInventoryList = new ArrayList<>();
+final class FakeProductProvider {
+    private final List<ProductInventory> productInventoryList = new ArrayList<>();
 
     FakeProductProvider() {
         String[][] inventory = new String[][]{
-                new String[]{"1", "Cola", "150", "2"},
-                new String[]{"2", "Fanta", "140", "2"},
-                new String[]{"3", "Sprite", "140", "2"},
-                new String[]{"4", "Water", "100", "2"},
-                new String[]{"5", "Cashew", "350", "2"},
-                new String[]{"6", "Peanuts", "350", "2"},
-                new String[]{"7", "Empty can of Tea", "12500", "1"}
+                new String[]{"1", "Cola", "150", "10"},
+                new String[]{"2", "Fanta", "140", "10"},
+                new String[]{"3", "Sprite", "140", "10"},
+                new String[]{"4", "Water", "100", "10"},
+                new String[]{"5", "Cashew", "350", "10"},
+                new String[]{"6", "Peanuts", "350", "10"},
+                new String[]{"7", "Empty can of Tea", "12500", "10"}
         };
 
         for (String[] object : inventory) {
@@ -29,9 +28,6 @@ public final class FakeProductProvider {
         }
     }
 
-    public List<Product> findAllProducts() {
-        return this.productList;
-    }
 
     public List<ProductInventory> findAllInventory() {
         return this.productInventoryList;
@@ -39,7 +35,6 @@ public final class FakeProductProvider {
 
     private void constructProduct(int id, String name, int price, int quantity) {
         Product product = new Product(id, name, price);
-        this.productList.add(product);
         ProductInventory productInventory = new ProductInventory(id, product, quantity);
         this.productInventoryList.add(productInventory);
     }

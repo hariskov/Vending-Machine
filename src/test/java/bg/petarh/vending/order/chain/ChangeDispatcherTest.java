@@ -1,9 +1,7 @@
 package bg.petarh.vending.order.chain;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
 
 import bg.petarh.vending.coins.CoinManagement;
 import bg.petarh.vending.order.OrderManagement;
@@ -21,9 +19,8 @@ class ChangeDispatcherTest extends AbstractPurchaseOrderTest {
 
     private ChangeDispatcher changeDispatcher;
 
-    @BeforeEach
+    @Override
     void setup() {
-        MockitoAnnotations.openMocks(this);
         changeDispatcher = new ChangeDispatcher(orderManagement, coinManagement);
     }
 

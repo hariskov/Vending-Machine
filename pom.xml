@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>bg.petarh.vending</groupId>
@@ -21,7 +22,6 @@
         <java.version>21</java.version>
         <docker.image.prefix>${user.name}</docker.image.prefix>
     </properties>
-
 
     <dependencies>
         <dependency>
@@ -46,6 +46,19 @@
     </dependencies>
     <build>
         <finalName>${project.artifactId}</finalName>
+
+        <testSourceDirectory>src/test/java</testSourceDirectory>
+        <testResources>
+            <testResource>
+                <directory>src/test/resources</directory>
+            </testResource>
+        </testResources>
+        <sourceDirectory>src/main/java</sourceDirectory>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -66,28 +79,6 @@
                         </resource>
                     </resources>
                 </configuration>
-            </plugin>
-            <!-- Copy Dockerfile -->
-            <plugin>
-                <artifactId>maven-resources-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>copy-resources</id>
-                        <phase>validate</phase>
-                        <goals>
-                            <goal>copy-resources</goal>
-                        </goals>
-                        <configuration>
-                            <outputDirectory>${project.build.directory}/docker</outputDirectory>
-                            <resources>
-                                <resource>
-                                    <directory>src/main/docker</directory>
-                                    <filtering>true</filtering>
-                                </resource>
-                            </resources>
-                        </configuration>
-                    </execution>
-                </executions>
             </plugin>
             <plugin>
                 <groupId>com.coderplus.maven.plugins</groupId>
@@ -121,8 +112,8 @@
                         <configuration>
                             <target>
                                 <zip destfile="${project.build.directory}/app.zip">
-                                    <zipfileset dir="${project.build.directory}/docker" />
-                                    <zipfileset dir="${project.build.directory}" includes="${project.artifactId}.jar" />
+                                    <zipfileset dir="${project.build.directory}/docker"/>
+                                    <zipfileset dir="${project.build.directory}" includes="${project.artifactId}.jar"/>
                                 </zip>
                             </target>
                         </configuration>

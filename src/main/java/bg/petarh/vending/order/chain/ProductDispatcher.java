@@ -5,7 +5,7 @@ import bg.petarh.vending.order.PurchaseOrder;
 import bg.petarh.vending.rest.responses.PurchaseOrderHandlingResponse;
 
 public class ProductDispatcher extends PurchaseOrder {
-    private OrderManagement orderManagement;
+    private final OrderManagement orderManagement;
 
     public ProductDispatcher(OrderManagement orderManagement) {
         this.orderManagement = orderManagement;
@@ -14,6 +14,10 @@ public class ProductDispatcher extends PurchaseOrder {
     @Override
     public PurchaseOrderHandlingResponse handle() {
         orderManagement.finishOrder();
+
+        //TODO
+        // drop product and remove from inventory
+
         return getNextPurchaseOrder().handle();
     }
 }

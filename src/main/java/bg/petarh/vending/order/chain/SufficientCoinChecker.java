@@ -8,9 +8,9 @@ import bg.petarh.vending.rest.responses.PurchaseOrderHandlingResponse;
 
 public class SufficientCoinChecker extends PurchaseOrder {
 
-    private OrderManagement orderManagement;
+    private final OrderManagement orderManagement;
 
-    private CoinManagement coinManagement;
+    private final CoinManagement coinManagement;
 
     public SufficientCoinChecker(OrderManagement orderManagement, CoinManagement coinManagement) {
         this.orderManagement = orderManagement;

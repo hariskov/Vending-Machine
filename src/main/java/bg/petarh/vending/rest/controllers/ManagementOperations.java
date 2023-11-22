@@ -1,5 +1,6 @@
 package bg.petarh.vending.rest.controllers;
 
+import bg.petarh.vending.services.ProductOperationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -8,18 +9,18 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import bg.petarh.vending.entities.Product;
-import bg.petarh.vending.services.ProductService;
+import bg.petarh.vending.services.ProductManagementService;
 
 
 @RestController(value = "/product-management")
 public class ManagementOperations {
 
     @Autowired
-    private ProductService productService;
+    private ProductOperationService productOperationService;
 
     @PostMapping(value = "/addProduct")
     public void addProduct(@RequestBody Product product) {
-
+        productOperationService.addProduct(product);
     }
 
     @PatchMapping(value = "/updateProduct")

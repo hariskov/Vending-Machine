@@ -1,7 +1,5 @@
 package bg.petarh.vending.order.chain;
 
-import org.springframework.stereotype.Component;
-
 import bg.petarh.vending.order.PurchaseOrder;
 import bg.petarh.vending.rest.responses.PurchaseOrderHandlingResponse;
 import bg.petarh.vending.rest.responses.PurchaseStartOption;

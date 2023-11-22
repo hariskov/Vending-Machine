@@ -16,9 +16,8 @@ import bg.petarh.vending.order.OrderManagement;
 import bg.petarh.vending.order.PurchaseOrderChain;
 import bg.petarh.vending.order.PurchaseOrderSelectionType;
 import bg.petarh.vending.order.chain.ProductSelect;
-import bg.petarh.vending.repository.ProductRepository;
 import bg.petarh.vending.rest.responses.PurchaseOrderHandlingResponse;
-import bg.petarh.vending.services.ProductService;
+import bg.petarh.vending.services.ProductManagementService;
 import bg.petarh.vending.state.StateService;
 
 @RestController(value = "/")
@@ -28,7 +27,7 @@ public class Operations {
     private PurchaseOrderChain purchaseOrderChain;
 
     @Autowired
-    private ProductService productService;
+    private ProductManagementService productManagementService;
 
     @Autowired
     private OrderManagement orderManagement;
@@ -65,12 +64,12 @@ public class Operations {
 
     @GetMapping(value = "/getProducts")
     public ResponseEntity<List<Product>> getProducts() {
-        List<Product> products = productService.getAvailableProducts();
+        List<Product> products = productManagementService.getAvailableProducts();
         return ResponseEntity.ok(products);
     }
 
     @GetMapping(value = "/getStateInformation")
-    public ResponseEntity<String> getStateInformation(){
+    public ResponseEntity<String> getStateInformation() {
         String state = stateService.obtainState();
         return ResponseEntity.ok(state);
     }

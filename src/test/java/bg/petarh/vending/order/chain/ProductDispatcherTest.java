@@ -1,10 +1,8 @@
 package bg.petarh.vending.order.chain;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
 
 import bg.petarh.vending.order.Order;
 import bg.petarh.vending.order.OrderManagement;
@@ -28,9 +26,8 @@ class ProductDispatcherTest extends AbstractPurchaseOrderTest {
     private final int productPrice = 1500;
     private final PurchaseOrderHandlingResponse mockResponse = new TestResponse();
 
-    @BeforeEach
+    @Override
     void setup() {
-        MockitoAnnotations.openMocks(this);
         Order currentOrder = new Order();
         when(orderManagement.getCurrentOrder()).thenReturn(currentOrder);
         when(changeDispatcher.handle()).thenReturn(mockResponse);

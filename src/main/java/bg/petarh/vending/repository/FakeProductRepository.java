@@ -1,11 +1,10 @@
 package bg.petarh.vending.repository;
 
+import bg.petarh.vending.entities.Product;
+import bg.petarh.vending.entities.ProductInventory;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-
-import bg.petarh.vending.entities.Product;
-import bg.petarh.vending.entities.ProductInventory;
 
 /**
  * Repository class that substitutes calls to the database with ones returning predefined data
@@ -29,7 +28,7 @@ public class FakeProductRepository implements ProductRepository {
     }
 
     @Override
-    public List<ProductInventory> findAllAvailableProductInventory(){
+    public List<ProductInventory> findAllAvailableProductInventory() {
         return this.findAllProductInventory()
                 .stream()
                 .filter(productInventory -> productInventory.getQuantity() > 0)
@@ -37,7 +36,40 @@ public class FakeProductRepository implements ProductRepository {
     }
 
     @Override
+    public ProductInventory getProductInventory(Product p) {
+        return this.findAllProductInventory()
+                .stream()
+                .filter(productInventory -> productInventory.getProduct().equals(p))
+                .findFirst().orElse(null); //null here is to simulate nothing found (never return null in practice!)
+    }
+
+    @Override
     public boolean hasProductQuantity(Product product) {
         return this.findAvailableProducts().contains(product);
+    }
+
+    @Override
+    public void saveOrUpdateProductInventory(ProductInventory inventory) {
+        ProductInventory dbInventory = fakeProductProvider.findAllInventory()
+                .stream()
+                .filter(productInventory -> productInventory.equals(inventory))
+                .findFirst()
+                .orElse(null);
+        if (dbInventory != null) {
+            dbInventory.setQuantity(inventory.getQuantity());
+        } else {
+            fakeProductProvider.findAllInventory().add(inventory);
+        }
+    }
+
+    @Override
+    public void updateProductInventory(ProductInventory inventory) {
+        ProductInventory dbInventory = fakeProductProvider.findAllInventory()
+                .stream()
+                .filter(productInventory -> productInventory.equals(inventory))
+                .findFirst()
+                .orElseThrow(() -> new RuntimeException("product inventory not found !"));
+
+        dbInventory.setQuantity(inventory.getQuantity());
     }
 }

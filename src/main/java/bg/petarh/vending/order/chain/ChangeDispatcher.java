@@ -1,7 +1,6 @@
 package bg.petarh.vending.order.chain;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import bg.petarh.vending.coins.CoinManagement;
 import bg.petarh.vending.order.OrderManagement;
@@ -11,12 +10,12 @@ import bg.petarh.vending.rest.responses.PurchaseOrderHandlingResponse;
 public class ChangeDispatcher extends PurchaseOrder {
 
     @Autowired
-    private OrderManagement orderManagement;
+    private final OrderManagement orderManagement;
 
     @Autowired
-    private CoinManagement coinManagement;
+    private final CoinManagement coinManagement;
 
-    public ChangeDispatcher(OrderManagement orderManagement, CoinManagement coinManagement){
+    public ChangeDispatcher(OrderManagement orderManagement, CoinManagement coinManagement) {
         this.orderManagement = orderManagement;
         this.coinManagement = coinManagement;
     }

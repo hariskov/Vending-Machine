@@ -8,7 +8,6 @@ import java.util.Map;
 /**
  * keeps hold of currently deposited coins
  */
-@Component
 class OrderCoinHolder extends CoinInventory{
 
     /**

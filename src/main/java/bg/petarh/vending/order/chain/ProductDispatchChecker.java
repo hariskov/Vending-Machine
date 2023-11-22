@@ -5,23 +5,23 @@ import bg.petarh.vending.order.OrderManagement;
 import bg.petarh.vending.order.PurchaseOrder;
 import bg.petarh.vending.rest.responses.DrinkSelectUnavailableResponse;
 import bg.petarh.vending.rest.responses.PurchaseOrderHandlingResponse;
-import bg.petarh.vending.services.ProductService;
+import bg.petarh.vending.services.ProductManagementService;
 
 public class ProductDispatchChecker extends PurchaseOrder {
 
-    private ProductService productService;
-    private OrderManagement orderManagement;
+    private final ProductManagementService productManagementService;
+    private final OrderManagement orderManagement;
 
-    public ProductDispatchChecker(ProductService productService, OrderManagement orderManagement) {
+    public ProductDispatchChecker(ProductManagementService productManagementService, OrderManagement orderManagement) {
         this.orderManagement = orderManagement;
-        this.productService = productService;
+        this.productManagementService = productManagementService;
     }
 
     @Override
     public PurchaseOrderHandlingResponse handle() {
         Product product = orderManagement.getCurrentOrder().getSelectedProduct();
 
-        boolean hasProduct = productService.isProductAvailable(product);
+        boolean hasProduct = productManagementService.isProductAvailable(product);
         if (hasProduct) {
             return super.getNextPurchaseOrder().handle();
         }

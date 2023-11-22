@@ -12,7 +12,7 @@ import bg.petarh.vending.coins.CoinManagement;
 import bg.petarh.vending.entities.ProductInventory;
 import bg.petarh.vending.order.Order;
 import bg.petarh.vending.order.OrderManagement;
-import bg.petarh.vending.services.ProductService;
+import bg.petarh.vending.services.ProductManagementService;
 
 @Service
 class StateProvider {
@@ -21,7 +21,7 @@ class StateProvider {
     private OrderManagement orderManagement;
 
     @Autowired
-    private ProductService productService;
+    private ProductManagementService productManagementService;
 
     @Autowired
     private CoinManagement coinManagement;
@@ -29,7 +29,7 @@ class StateProvider {
     public State getState() {
 
         OrdersState os = constructOrderState(orderManagement.getOrderHistory());
-        ProductState ps = constructProductState(productService.getAllAvailableProductInventory());
+        ProductState ps = constructProductState(productManagementService.getAllAvailableProductInventory());
         CoinState cs = constructCoinState(coinManagement.getCurrentCoinInventory());
 
         return new State(os, ps, cs);
