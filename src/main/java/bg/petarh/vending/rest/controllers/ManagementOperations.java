@@ -1,6 +1,5 @@
 package bg.petarh.vending.rest.controllers;
 
-import bg.petarh.vending.services.ProductOperationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -9,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import bg.petarh.vending.entities.Product;
-import bg.petarh.vending.services.ProductManagementService;
+import bg.petarh.vending.services.ProductOperationService;
 
 
 @RestController(value = "/product-management")
@@ -25,11 +24,11 @@ public class ManagementOperations {
 
     @PatchMapping(value = "/updateProduct")
     public void updateProduct(@RequestBody Product product) {
-
+        productOperationService.updateProduct(product);
     }
 
     @DeleteMapping(value = "/removeProduct")
     public void removeProduct(@RequestBody Product product) {
-
+        productOperationService.removeProduct(product);
     }
 }

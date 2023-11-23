@@ -11,7 +11,7 @@ import bg.petarh.vending.entities.Product;
 public class OrderManagement {
 
     private Order currentOrder;
-    private List<Order> orderHistory = new ArrayList<>();
+    private final List<Order> orderHistory = new ArrayList<>();
 
     public Order getCurrentOrder() {
         return this.getOrStartOrder();
@@ -28,8 +28,9 @@ public class OrderManagement {
         getOrStartOrder().setSelectedProduct(product);
     }
 
-    public void finishOrder() {
+    public void finishOrder(OrderStatus status) {
         // do the actual dispatching of the drink
+        this.currentOrder.setStatus(status);
         orderHistory.add(this.getCurrentOrder());
         this.currentOrder = null;
     }

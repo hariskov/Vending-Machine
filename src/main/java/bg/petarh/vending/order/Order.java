@@ -6,6 +6,7 @@ public class Order {
 
     private Product selectedProduct;
     private int cost;
+    private OrderStatus status = OrderStatus.STARTED;
 
     public Product getSelectedProduct() {
         return selectedProduct;
@@ -18,5 +19,13 @@ public class Order {
 
     public int getCost() {
         return cost;
+    }
+
+    public void setStatus(OrderStatus status) {
+        this.status = status;
+    }
+
+    public OrderStatus getStatus() {
+        return this.status;
     }
 }

@@ -22,8 +22,11 @@ public class ChangeDispatcher extends PurchaseOrder {
 
     @Override
     public PurchaseOrderHandlingResponse handle() {
+
+        // do we expect issues here ?
         this.performLastOrderChangeReturn();
-        return null;
+
+        return super.getNextPurchaseOrder().handle();
     }
 
     void performLastOrderChangeReturn() {

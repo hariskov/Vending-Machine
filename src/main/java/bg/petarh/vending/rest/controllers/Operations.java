@@ -1,6 +1,7 @@
 package bg.petarh.vending.rest.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,9 +28,6 @@ public class Operations {
     private PurchaseOrderChain purchaseOrderChain;
 
     @Autowired
-    private ProductManagementService productManagementService;
-
-    @Autowired
     private OrderManagement orderManagement;
 
     @Autowired
@@ -38,7 +36,10 @@ public class Operations {
     @Autowired
     private StateService stateService;
 
-    @PostMapping(value = "/insertCoin")
+    @Autowired
+    private ProductManagementService productManagementService;
+
+    @PostMapping(value = "/insertCoin", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Integer> insertCoin(@RequestBody Coin insertedCoin) {
         this.coinManagement.insertCoin(insertedCoin);
         purchaseOrderChain.selectPurchaseOrder(PurchaseOrderSelectionType.DRINK_DISPATCH_CHECK);
@@ -52,14 +53,15 @@ public class Operations {
         return ResponseEntity.ok(handleResult);
     }
 
-    @PostMapping(value = "/selectDrink")
-    public ResponseEntity<PurchaseOrderHandlingResponse> selectDrink(Product product) {
+    @PostMapping(value = "/selectDrink", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<PurchaseOrderHandlingResponse> selectDrink(@RequestBody Product product) {
         orderManagement.selectProduct(product);
 
         ProductSelect productSelect = (ProductSelect) purchaseOrderChain.selectPurchaseOrder(PurchaseOrderSelectionType.SELECT_DRINK);
         PurchaseOrderHandlingResponse handleResult = productSelect.handle();
+        ResponseEntity<PurchaseOrderHandlingResponse> response = ResponseEntity.ok(handleResult);
 
-        return ResponseEntity.ok(handleResult);
+        return response;
     }
 
     @GetMapping(value = "/getProducts")

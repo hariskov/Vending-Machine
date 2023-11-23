@@ -13,29 +13,45 @@ import bg.petarh.vending.order.chain.ProductDispatcher;
 import bg.petarh.vending.order.chain.ProductSelect;
 import bg.petarh.vending.order.chain.SufficientCoinChecker;
 import bg.petarh.vending.services.ProductManagementService;
+import bg.petarh.vending.services.ProductOperationService;
 
 @Component
 public class PurchaseOrderChain {
 
-    @Autowired
-    private ProductManagementService productManagementService;
-    @Autowired
-    private OrderManagement orderManagement;
-    @Autowired
-    private CoinManagement coinManagement;
+    private final ProductManagementService productManagementService;
+    private final OrderManagement orderManagement;
+    private final CoinManagement coinManagement;
+    private final ProductOperationService productOperationService;
 
-    private final PurchaseOrder orderStart = new OrderStart(); // Do you want to purchase ?
-    private final PurchaseOrder productSelect = new ProductSelect(); // Select drink
-    private final PurchaseOrder productDispatchChecker = new ProductDispatchChecker(productManagementService, orderManagement); // can dispatch drink ?
-    private final PurchaseOrder sufficientCoinChecker = new SufficientCoinChecker(orderManagement, coinManagement); // can the drink be paid
-    private final PurchaseOrder changeDispatchChecker = new ChangeDispatchChecker(orderManagement, coinManagement);  // can return change ?
-    private final PurchaseOrder productDispatcher = new ProductDispatcher(orderManagement); // dispatch drink
-    private final PurchaseOrder changeDispatcher = new ChangeDispatcher(orderManagement, coinManagement); // return change
-    private final PurchaseOrder orderFinish = new OrderFinish(coinManagement); // done with order
+    private PurchaseOrder orderStart; // Do you want to purchase ?
+    private PurchaseOrder productSelect; // Select drink
+    private PurchaseOrder productDispatchChecker; // can dispatch drink ?
+    private PurchaseOrder sufficientCoinChecker; // can the drink be paid
+    private PurchaseOrder changeDispatchChecker;  // can return change ?
+    private PurchaseOrder productDispatcher; // dispatch drink
+    private PurchaseOrder changeDispatcher; // return change
+    private PurchaseOrder orderFinish; // done with order
 
     @Autowired
-    PurchaseOrderChain() {
+    PurchaseOrderChain(ProductOperationService productOperationService, ProductManagementService productManagementService, OrderManagement orderManagement,
+                       CoinManagement coinManagement) {
+        this.productManagementService = productManagementService;
+        this.productOperationService = productOperationService;
+        this.orderManagement = orderManagement;
+        this.coinManagement = coinManagement;
+        constructFields();
         setupChainOrder();
+    }
+
+    private void constructFields() {
+        this.orderStart = new OrderStart();
+        this.productSelect = new ProductSelect();
+        this.productDispatchChecker = new ProductDispatchChecker(productManagementService, orderManagement);
+        this.sufficientCoinChecker = new SufficientCoinChecker(orderManagement, coinManagement);
+        this.changeDispatchChecker = new ChangeDispatchChecker(orderManagement, coinManagement);
+        this.productDispatcher = new ProductDispatcher(productOperationService, orderManagement);
+        this.changeDispatcher = new ChangeDispatcher(orderManagement, coinManagement);
+        this.orderFinish = new OrderFinish();
     }
 
     private void setupChainOrder() {

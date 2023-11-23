@@ -12,16 +12,9 @@ import java.util.Map;
 @Service
 public class CoinManagement {
 
-    private final OrderCoinHolder orderCoinHolder;// = new OrderCoinHolder();
-    private final InventoryCoinHolder inventoryCoinHolder;// = new InventoryCoinHolder();
-    private final ChangeCalculator changeCalculator;// = new ChangeCalculator();
-
-    //    @Autowired
-    CoinManagement(OrderCoinHolder orderCoinHolder, InventoryCoinHolder inventoryCoinHolder, ChangeCalculator changeCalculator) {
-        this.orderCoinHolder = orderCoinHolder;
-        this.inventoryCoinHolder = inventoryCoinHolder;
-        this.changeCalculator = changeCalculator;
-    }
+    private final OrderCoinHolder orderCoinHolder = new OrderCoinHolder();
+    private final InventoryCoinHolder inventoryCoinHolder = new InventoryCoinHolder();
+    private final ChangeCalculator changeCalculator = new ChangeCalculator();
 
     public void insertCoin(Coin insertedCoin) {
         this.orderCoinHolder.addCoin(insertedCoin, 1);
@@ -31,8 +24,11 @@ public class CoinManagement {
         return this.orderCoinHolder.getTotalAmount();
     }
 
+    // not entirely correct, currently this checks either coin holder of current order or coin holder in inventory,
+    // but it is possible that ONLY when both are combined can change be returned
     public boolean canReturn(int cost) {
-        return !changeCalculator.calculateChange(this.orderCoinHolder, cost).isEmpty();
+        return !changeCalculator.calculateChange(this.orderCoinHolder, cost).isEmpty()
+                || changeCalculator.calculateChange(this.inventoryCoinHolder, cost).isEmpty();
     }
 
     /**
@@ -49,8 +45,8 @@ public class CoinManagement {
      */
 
     public void performReturn(int cost) {
-        Map<Coin, Integer> change = changeCalculator.calculateChange(inventoryCoinHolder, cost);
         this.moveCoinsToInventory(); // empty the temp hold
+        Map<Coin, Integer> change = changeCalculator.calculateChange(inventoryCoinHolder, cost);
         this.moveCoinsToOrderInventory(change);
     }
 

@@ -11,7 +11,7 @@ class Limits {
         this.limits = limits;
     }
 
-    Limit getLimit(LimitType limitType){
+    Limit getLimit(LimitType limitType) {
         return limits.get(limitType);
     }
 

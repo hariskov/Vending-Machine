@@ -5,6 +5,10 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 public class Product {
 
+    public Product(){
+
+    }
+
     public Product(int id, String name, int cost) {
         this.id = id;
         this.name = name;

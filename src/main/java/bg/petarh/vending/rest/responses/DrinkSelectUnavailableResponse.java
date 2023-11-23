@@ -7,4 +7,5 @@ public class DrinkSelectUnavailableResponse implements PurchaseOrderHandlingResp
     public String message() {
         return UNAVAILABLE_QUANTITY_MESSAGE;
     }
+
 }
